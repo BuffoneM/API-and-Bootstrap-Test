@@ -1,7 +1,7 @@
 // Fetch Data Button Press
 async function fetchData() {
     document.getElementById("loadingSpinner").style.display = 'block'
-    const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=')
+    const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO')
     if (response.ok) {
         const data = await response.json()
         createCard(data)
@@ -16,13 +16,13 @@ async function fetchData() {
 function createCard(data) {
 
     console.log(data)
+    document.getElementById("cardDataContainer").style.display = 'block'
     document.getElementById('rootCard').innerHTML = ""
     const rootCard = document.getElementById('rootCard')
 
     // Card object
     const mainContainer = document.createElement('div')
     mainContainer.setAttribute('class', 'card mx-auto')
-    mainContainer.setAttribute('style', 'width: 50rem;')
     rootCard.appendChild(mainContainer)
 
     // Card image content
